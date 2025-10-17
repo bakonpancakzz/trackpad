@@ -1,0 +1,98 @@
+{
+    "name": "trackpad",
+    "displayName": "Discord Trackpad",
+    "description": "Showcase your Wakatime and Lines of Code on Discord",
+    "version": "1.0.0",
+    "main": "./extension.js",
+    "publisher": "bakonpancakz",
+    "icon": "icon.png",
+    "repository": {
+        "url": "https://git.panca.kz/bakonpancakz/trackpad"
+    },
+    "scripts": {
+        "build": "npx tsc && npx @vscode/vsce package"
+    },
+    "engines": {
+        "vscode": "^1.96.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "dependencies": {
+        "discord-rpc": "^4.0.1",
+        "typescript": "^5.9.3"
+    },
+    "devDependencies": {
+        "@types/discord-rpc": "^4.0.8",
+        "@types/node": "^22.10.2",
+        "@types/vscode": "^1.96.0"
+    },
+    "contributes": {
+        "configuration": {
+            "title": "Trackpad",
+            "properties": {
+                "trackpad.allowedExtensions": {
+                    "description": "Allowed File Extensions for Line Counter",
+                    "type": "array",
+                    "uniqueItems": true,
+                    "default": [
+                        ".js",
+                        ".ts",
+                        ".pug",
+                        ".html",
+                        ".css",
+                        ".sql",
+                        ".xml",
+                        ".yml",
+                        ".md",
+                        ".go"
+                    ]
+                },
+                "trackpad.ignoredDirectories": {
+                    "type": "array",
+                    "description": "Ignored Directory Names for Line Counter",
+                    "uniqueItems": true,
+                    "default": [
+                        "node_modules",
+                        ".git",
+                        "dist",
+                        "build",
+                        "out"
+                    ]
+                },
+                "trackpad.activityDetails": {
+                    "type": "string",
+                    "description": "Activity Details (Upper) with template literal support",
+                    "default": "Project: {workspace.name}"
+                },
+                "trackpad.activityState": {
+                    "type": "string",
+                    "description": "Activity State (Lower) with template literal support",
+                    "default": "{workspace.loc} LOC - {wakatime.text}"
+                },
+                "trackpad.overrideSmallIcon": {
+                    "type": "string",
+                    "description": "Set Small Icon URL for Activity"
+                },
+                "trackpad.overrideSmallText": {
+                    "description": "Set Small Text for Activity",
+                    "type": "string"
+                },
+                "trackpad.wakatimeKey": {
+                    "type": "string",
+                    "description": "",
+                    "ignoreSync": true
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "trackpad.refresh",
+                "title": "Trackpad: Refresh Discord Rich Presence"
+            }
+        ]
+    }
+}

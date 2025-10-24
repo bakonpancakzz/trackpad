@@ -2,7 +2,7 @@
 Visual Studio Code Extension that displays your current [Wakatime](https://wakatime.com/) and Lines of Code as your Discord Activity. So you can finally prove to all your friends that you are, in fact, a 10x dev.
 
 <p align="center">
-    <img src=".documents/preview.jpg" height=320>
+    <img src="preview.jpg" height=320>
     <h6 align="center">yep thats my profile</h6>
 </p>
 

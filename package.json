@@ -6,11 +6,18 @@
     "main": "./extension.js",
     "publisher": "bakonpancakz",
     "icon": "icon.png",
+    "files": [
+        "node_modules",
+        "extension.js",
+        "README.md",
+        "icon.png",
+        "LICENSE"
+    ],
     "repository": {
-        "url": "https://git.panca.kz/bakonpancakz/trackpad"
+        "url": "https://github.com/bakonpancakzz/trackpad"
     },
     "scripts": {
-        "build": "npx tsc && npx @vscode/vsce package"
+        "build": "npm install && npx tsc && npm prune --omit=dev && npx @vscode/vsce package"
     },
     "engines": {
         "vscode": "^1.96.0"
@@ -22,13 +29,13 @@
         "onStartupFinished"
     ],
     "dependencies": {
-        "discord-rpc": "^4.0.1",
-        "typescript": "^5.9.3"
+        "discord-rpc": "^4.0.1"
     },
     "devDependencies": {
         "@types/discord-rpc": "^4.0.8",
         "@types/node": "^22.10.2",
-        "@types/vscode": "^1.96.0"
+        "@types/vscode": "^1.96.0",
+        "typescript": "^5.9.3"
     },
     "contributes": {
         "configuration": {
